@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Dashboard - Subscription Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+
+<body>
+  <header>
+    <div class="logo">Subscription Manager</div>
+    <nav>
+      <a href="index.html">Home Page</a>
+      <a href="dashboard.html">Active Subscriptions</a>
+      <a href="#upcoming">Upcoming Payments</a>
+      <a href="settings.html">Settings</a>
+      <a href="login.html" class="btn" id="logoutBtn">Logout</a>
+    </nav>
+  </header>
+  <main class="container">
+    <div id="notice" class="notice"></div>
+    <h1>Your Subscriptions</h1>
+    <input type="text" id="searchInput" placeholder="Search subscriptions..." onkeyup="filterSubscriptions()" style="margin-bottom: 10px; padding: 5px; width: 250px;">
+    <table id="subscriptionsTable">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Amount</th>
+          <th>Billing Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+    </table>
+    <a href="add-subscription.html">Add Subscription</a>
+    <script src="scripts/dashboard.js"></script>
+    <script>
+      function filterSubscriptions() {
+        const input = document.getElementById("searchInput").value.toLowerCase();
+        const table = document.getElementById("subscriptionsTable");
+        const rows = table.getElementsByTagName("tr");
+      
+        for (let i = 1; i < rows.length; i++) {  // start from 1 to skip header
+          let row = rows[i];
+          let text = row.textContent.toLowerCase();
+          row.style.display = text.includes(input) ? "" : "none";
+        }
+      }
+      </script>
+    <footer class="container footer">
+      <p> @2025 Subscription Manager</p>
+    </footer>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Subscription</title>
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+  <main class="form-page">
+    <div class="form-container">
+      <h2>Add New Subscription</h2>
+      <form id="subscriptionForm" action="add-subscription.php" method="POST">
+        <label for="service_name">Service Name</label>
+        <input type="text" id="service_name" name="service_name" required><br>
+
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" name="amount" required><br>
+
+        <label for="billing_date">Billing Date</label>
+        <input type="date" id="billing_date" name="billing_date" required><br>
+
+        <label for="status">Status</label>
+        <select id="status" name="status">
+          <option value="Active">Active</option>
+          <option value="Expired">Expired</option>
+        </select><br>
+
+        <button type="submit">Save Subscription</button>
+      </form>
+
+      <p><a href="dashboard.html">⬅ Back to Dashboard</a></p>
+    </div>
+
+    <script src="scripts/add-subscription.js"></script>
+  </main>
+</body>
+
+</html>
